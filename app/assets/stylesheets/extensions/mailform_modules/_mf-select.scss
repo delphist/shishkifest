@@ -1,0 +1,134 @@
+/*
+* MF Select
+*/
+
+$rd-select-dropdown-color: $input-color;
+$rd-select-dropdown-bg: $contrast;
+
+$rd-select-dropdown-item-hover-color: $secondary-2;
+$rd-select-dropdown-item-hover-bg: $primary;
+
+$rd-select-dropdown-item-selected-color: $secondary-2;
+$rd-select-dropdown-item-selected-bg: darken($contrast, 5%);
+
+$rd-select-icon-color: $content-color;
+
+.mfSelect {
+  position: relative;
+
+  select {
+    padding: 0px 1px 1px 0;
+    z-index: -9999999;
+    border: medium none;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: -15px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    max-height: 300px;
+    opacity: 0;
+    visibility: hidden;
+    border: none;
+    transition: .3s all ease-in-out;
+    outline: none;
+    -webkit-appearance: none;
+    font-weight: 300;
+    line-height: 25px;
+    background: #fff;
+    color: #8e8ca0;
+    max-width: 95%;
+    z-index: 1;
+    @include transform(translateY(20px));
+
+    .option {
+      position: relative;
+      z-index: 1;
+      text-transform: none;
+      cursor: pointer;
+      padding: 5px 40px;
+      overflow: hidden;
+      transition: .4s all ease-in-out;
+      transition-delay: .2s;
+      font-size: $input-font-size;
+      line-height: 30px;
+
+      &.selected {
+        color: $rd-select-dropdown-item-selected-color;
+      }
+
+      &:hover {
+        color: $rd-select-dropdown-item-hover-color;
+      }
+    }
+  }
+
+  .value {
+    background: $rd-select-dropdown-bg;
+    cursor: pointer;
+    transition: .4s all ease-in-out;
+    font-size: $input-font-size;
+    padding: $input-padding;
+    line-height: $input-line-height;
+    color: $placeholder-clr;
+    background: $contrast;
+    border: $input-border;
+    border-color: $contrast;
+    border-radius: $input-border-radius;
+
+    &:before, &:after {
+      position: absolute;
+      right: 12px;
+      top: ($input-height - 24) /2;
+      width: 24px;
+      height: 24px;
+      font: 400 20px $fa;
+      line-height: 24px;
+      color: $rd-select-icon-color;
+      text-align: center;
+      transition: .4s all ease;
+    }
+
+    &:before {
+      content: '\f107';
+      @include transform(rotate(0deg) scale(1));
+      font-size: 24px;
+      color: $rd-select-icon-color;
+    }
+
+    &:after {
+      content: '\f107';
+      font-size: 24px;
+      color: $rd-select-icon-color;
+      @include transform(rotate(-180deg) scale(0));
+    }
+  }
+
+  &.show {
+    .dropdown {
+      opacity: 1;
+      visibility: visible;
+      @include transform(translateY(0));
+    }
+
+    .value {
+      color: $rd-select-dropdown-color;
+
+      &:before, &:after {
+        color: $rd-select-dropdown-color;
+      }
+
+      &:before {
+        @include transform(rotate(90deg) scale(0));
+      }
+
+      &:after {
+        @include transform(rotate(0deg) scale(1));
+      }
+    }
+  }
+}

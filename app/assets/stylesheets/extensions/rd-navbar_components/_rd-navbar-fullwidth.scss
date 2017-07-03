@@ -1,0 +1,84 @@
+/*
+* @subsection   RD Navbar Fullwidth
+*
+* @description  Describes style declarations for fullwidth navbar layout
+*/
+
+.rd-navbar-fullwidth{
+  padding-top: 31px;
+  padding-bottom: 21px;
+
+  .rd-navbar-inner{
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rd-navbar-brand{
+    display: inline-block;
+
+    img{
+      max-height: 50px;
+    }
+  }
+
+  .rd-navbar-collapse-wrap{
+    display: block;
+  }
+
+  .rd-navbar-collapse{
+    display: block;
+
+    .contact-info{
+      padding-top: 9px;
+      padding-bottom: 9px;
+      position: absolute;
+      left: 38px;
+    }
+
+    .inline-list{
+      margin-top: 0;
+      position: absolute;
+      right: 38px;
+    }
+
+    @media (min-width: $screen-md-min) {
+    	.inline-list{
+          position: static;
+        }
+    }
+  }
+
+  .rd-navbar-nav-wrap{
+    display: block;
+    margin-top: 28px;
+  }
+
+  .rd-navbar-nav{
+    li{
+      position: relative;
+      display: inline-block;
+    }
+
+    li + li{
+      margin-left: 20px;
+    }
+
+    a{
+      font-size: 16px;
+    }
+  }
+
+  .rd-navbar__right-part{
+    position: absolute;
+    top:20px;
+    right: 40px;
+  }
+
+  .rd-navbar__right-btn-broup{
+    margin-top: 15px;
+  }
+}
+

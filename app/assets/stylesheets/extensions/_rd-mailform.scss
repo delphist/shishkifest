@@ -1,0 +1,384 @@
+/*
+* @subsection   RD Mail Form
+*
+* @description  Describes style declarations for RD Mail Form extension
+*
+* @author       Evgeniy Gusarov
+* @link         https://ua.linkedin.com/pub/evgeniy-gusarov/8a/a40/54a
+* @version      1.1.2
+*/
+
+$input-height: 61px;
+$input-font-weight: 300;
+$input-font-size: 20px;
+$input-line-height: 30px;
+
+$input-offset-top: 30px;
+$input-inline-offset: 20px;
+
+$input-color: $content-color;
+$input-background: transparent;
+
+$input-border-radius: 30px;
+$input-border: 2px solid $content-color;
+
+$input-padding:12px 40px;
+
+$textarea-height: 180px;
+
+$placeholder-clr: $input-color;
+$placeholder-opacity: 1;
+
+.rd-mailform {
+  position: relative;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+
+  fieldset {
+    border: none;
+
+    > .row + .row {
+      margin-top: $input-offset-top;
+    }
+  }
+
+  fieldset + fieldset {
+    margin-top: 30px;
+  }
+
+  @media (max-width: $screen-sm-min - 1) {
+    .row + .row,
+    .col-sm-4 + .col-sm-4 {
+      margin-top: 1.61111rem;
+    }
+  }
+
+}
+
+.rd-mailform label {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: $input-height / 2;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  input, select {
+    height: $input-height;
+  }
+
+  input, select, textarea {
+    display: block;
+    width: 100%;
+    margin: 0;
+    -webkit-appearance: none;
+    font-size: $input-font-size;
+    padding: 11px 40px 16px;
+    line-height: $input-line-height;
+    color: $input-color;
+    background: $input-background;
+
+    @if ($input-border != none) {
+      border: $input-border;
+      border-radius: $input-border-radius;
+    }
+
+    &:-moz-placeholder {
+      color: $placeholder-clr;
+      opacity: $placeholder-opacity;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $placeholder-clr;
+      opacity: $placeholder-opacity;
+    }
+
+    &::-moz-placeholder {
+      color: $placeholder-clr;
+      opacity: $placeholder-opacity;
+    }
+
+    &:-ms-input-placeholder {
+      color: $placeholder-clr;
+      opacity: $placeholder-opacity;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    overflow: auto;
+    min-height: $input-height;
+    height: $textarea-height;
+    max-height: $textarea-height * 1.5;
+    line-height: 1.5;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    margin-top: $input-offset-top;
+  }
+}
+
+.rd-mailform-inline {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 605px;
+
+  .btn-md{
+    min-width: 200px;
+  }
+
+  .rd-mailform-btn-controls,
+  .rd-mailform-item {
+    margin-top: $input-inline-offset;
+
+    button, input, select, textarea {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .rd-mailform-item {
+      background: #2f2d3b;
+      border-radius: 30px;
+
+    }
+
+    .rd-mailform-btn-controls {
+      margin-top: 0;
+    }
+  }
+}
+
+/*
+* MF Controls
+*/
+
+* + .mfControls {
+  margin-top: $input-offset-top;
+}
+
+.rd-mailform--skin-1 {
+  .select-container{
+    margin-top:31px;
+  }
+  @media (min-width: $screen-md-min) {
+
+
+   > fieldset:first-of-type {
+
+      > div {
+        @include make-flex();
+      }
+    }
+
+    .select-container {
+      margin-top: 0;
+      min-width: 245px;
+    }
+
+    .input-container {
+      border-width: 2px;
+      border-style: solid;
+      border-radius: $input-border-radius;
+
+      .select-container,
+      label {
+        position: relative;
+        margin-top: 0;
+
+
+        &:not(:last-child) {
+          &:after {
+            content: '';
+            height: 28px;
+            border-right-width: 1px;
+            border-right-style: solid;
+            position: absolute;
+            top: 50%;
+            @include transform (translateY(-50%));
+            right: 0;
+          }
+        }
+
+        input {
+          border: none;
+        }
+      }
+
+      .select-container label {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (min-width: $screen-lg-min) {
+    .select-container {
+      min-width: 278px;
+    }
+  }
+
+  * + .mfControls {
+    margin-top: 30px;
+  }
+}
+
+.bg-default {
+
+  .rd-mailform--skin-1 {
+    label {
+      input,
+      select,
+      textarea {
+        border-color: lighten(saturate(adjust_hue($default, 253.3333333333333), 4.225352112676054%), 41.76470588235294%);
+        color: darken(saturate(adjust_hue($contrast, 247.05882352941174), 11.888111888111885%), 28.039215686274517%);
+      }
+      .mfPlaceHolder {
+        color: darken(saturate(adjust_hue($contrast, 247.05882352941174), 11.888111888111885%), 28.039215686274517%);
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      .input-container, label {
+        color: lighten(saturate(adjust_hue($default, 253.3333333333333), 4.225352112676054%), 41.76470588235294%);
+      }
+    }
+  }
+
+}
+
+.bg-secondary-2,
+.bg-secondary-2--variant-1 {
+  .rd-mailform {
+    label {
+      input {
+        background: $grayscale-darker;
+        border-color: $grayscale-darker;
+        color: $content-color;
+      }
+    }
+  }
+
+  .rd-mailform--skin-1 {
+    label{
+      color: $content-color;
+    }
+
+    .mfSelect .value{
+      border-color:  $grayscale-darker;
+      background:  $grayscale-darker;
+      color: $content-color;
+    }
+    .mfSelect .dropdown{
+      border-color:  $grayscale-darker;
+      background:  $grayscale-darker;
+
+      .option {
+        color: $content-color;
+        &:hover{
+          color: $secondary-2;
+        }
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      .input-container {
+        border-color:  $grayscale-darker;
+        background:  $grayscale-darker;
+      }
+    }
+  }
+}
+
+.bg-primary {
+
+  .rd-mailform--skin-1,
+  .rd-mailform {
+
+    label {
+      input,
+      select,
+      .mfSelect,
+      textarea {
+        background: $contrast;
+        border-color: $contrast;
+        color: $content-color;
+      }
+
+      .mfPlaceHolder {
+        color: $content-color;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      .input-container {
+        background: $contrast;
+        color: $contrast;
+
+        label {
+          &:after {
+            color: $content-color;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.bg-contrast {
+  .rd-mailform--skin-1,
+  .rd-mailform {
+
+    label {
+      input,
+      select,
+      .mfSelect,
+      textarea {
+        background: darken(saturate(adjust_hue($contrast, 240), 4.761904761904756%), 4.117647058823522%);
+        border-color: darken(saturate(adjust_hue($contrast, 240), 4.761904761904756%), 4.117647058823522%);
+        color: $content-color;
+      }
+
+      .mfPlaceHolder {
+        color: darken(saturate(adjust_hue($contrast, 247.05882352941174), 11.888111888111885%), 28.039215686274517%);
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      .input-container {
+        background: darken(saturate(adjust_hue($contrast, 240), 4.761904761904756%), 4.117647058823522%);
+        color: darken(saturate(adjust_hue($contrast, 240), 4.761904761904756%), 4.117647058823522%);
+
+        label {
+          &:after {
+            color: darken(saturate(adjust_hue($contrast, 247.05882352941174), 11.888111888111885%), 28.039215686274517%);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@import "mailform_modules/_mf-animation.scss";
+@import "mailform_modules/_mf-placeholder.scss";
+@import "mailform_modules/_mf-validation.scss";
+@import "mailform_modules/_mf-submit.scss";
+@import "mailform_modules/_mf-icon.scss";
+@import "mailform_modules/_mf-select.scss";
+@import "mailform_modules/_mf-datepicker.scss";
+
+
+
+
+
+
+
+
+
+
+

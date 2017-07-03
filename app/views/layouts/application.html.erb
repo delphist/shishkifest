@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><head>
+    <!-- Site Title -->
+    <title>Шишки 2017</title>
+
+    <%= csrf_meta_tags %>
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400,300italic,300" rel="stylesheet" type="text/css">
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <!--[if lt IE 10]>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <%= yield %>
+  <%= javascript_include_tag 'application' %>
+</body></html>

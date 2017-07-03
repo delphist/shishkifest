@@ -1,0 +1,61 @@
+/*
+* @subsection   RD Google Map
+*
+* @description  Describes style declarations for RD Google Map extension
+*
+* @author       Evgeniy Gusarov
+* @link         https://ua.linkedin.com/pub/evgeniy-gusarov/8a/a40/54a
+* @version      1.0.0
+*/
+$map-height: 200px;
+$map-xs-height: 300px;
+$map-sm-height: 617px;
+
+.rd-google-map {
+  position: relative;
+  color: $contrast;
+  &__model {
+    height: $map-xs-height;
+
+    img {
+      max-width: none !important;
+    }
+
+    @media (min-width: $screen-xs-min) {
+      height: $map-xs-height;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      height: $map-sm-height;
+    }
+  }
+
+  &__locations {
+    display: none;
+  }
+
+  &-overlay {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    &-overlay {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      left: 0;
+      bottom: 0;
+      > .row {
+        height: 100%;
+      }
+    }
+
+    &-overlay-inner {
+      margin-left: auto;
+      margin-right: 0;
+      max-width: 570px;
+    }
+  }
+}
+

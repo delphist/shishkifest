@@ -1,0 +1,184 @@
+/*
+* @subsection   RD Navbar
+*
+* @description  Describes style declarations for RD Navbar extension
+*
+* @author       Evgeniy Gusarov
+* @link         https://ua.linkedin.com/pub/evgeniy-gusarov/8a/a40/54a
+* @version      2.0.0
+*/
+
+$rd-navbar-default-color: #999;
+$rd-navbar-contrast-color: #333;
+$rd-navbar-accent-color: #f44336;
+$rd-navbar-accent-color-2: rgb(46, 204, 113);
+$rd-navbar-white-color: #fff;
+
+$rd-navbar-shadow-ambient: 0 0 2px 0 rgba(#000, .25);
+$rd-navbar-shadow-medium: 0 3px 5px 0 rgba(#000, .25);
+$rd-navbar-shadow-large: 0 5px 8px 0 rgba(#000, .25);
+
+@import "rd-navbar_components/_rd-navbar-mixins.scss";
+
+%rd-navbar-transition {
+  transition: .3s all cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+%rd-navbar-hidden {
+  display: none;
+}
+
+%rd-navbar-visible {
+  display: block;
+}
+
+.rd-navbar--no-transition {
+  &, * {
+    transition: none !important;
+  }
+}
+
+.rd-navbar-wrap {
+  @extend %rd-navbar-transition;
+}
+
+.page-complex {
+  .rd-navbar-wrap.bg-image {
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    //right: 0;
+    //background: none !important;
+    //
+    //& > .bg-default:not(.rd-navbar--clone) {
+    //  background-color: transparent;
+    //}
+  }
+}
+
+.rd-navbar,
+.rd-navbar.rd-navbar--is-clone,
+.rd-navbar-toggle,
+.rd-navbar-collapse-toggle,
+.rd-navbar-nav-wrap,
+.rd-navbar-brand,
+.rd-navbar-collapse-wrap {
+  @extend %rd-navbar-hidden;
+}
+
+.rd-navbar-static,
+.rd-navbar-fixed,
+.rd-navbar-fullwidth {
+  @extend %rd-navbar-visible;
+}
+
+.rd-navbar-nav {
+  text-transform: uppercase;
+  font-family: $default-font-family-headings;
+  font-weight: 700;
+  font-size: rem($default-font-size, $h6-font-size);
+  letter-spacing: .12em;
+  line-height: 2;
+}
+
+.rd-navbar-sidebar-linked .page {
+  padding-left: 56px;
+}
+
+.rd-navbar-nav {
+  a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: rem($default-font-size, 18);
+    line-height: (31/18);
+    color: $contrast;
+  }
+}
+
+html.rd-navbar-fixed-linked {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.rd-navbar-static,
+.rd-navbar-fullwidth {
+  .rd-navbar-nav {
+    a {
+      font-weight: 400;
+      position: relative;
+      display: block;
+      text-align: center;
+      color: #fff;
+      -webkit-transition: background 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s;
+
+      &:hover,
+      &:focus {
+
+        &:before {
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+        }
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $contrast;
+        -webkit-transform: scale3d(0, 4, 1);
+        transform: scale3d(0, 4, 1);
+        -webkit-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+        -webkit-transition: -webkit-transform 0.3s;
+        transition: transform 0.3s;
+        -webkit-transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+        transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+      }
+    }
+  }
+}
+
+.brand,
+.rd-navbar-brand {
+  color: $contrast;
+  font-size: rem($default-font-size, 50);
+  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+
+  &:hover{
+    color: $contrast;
+  }
+
+
+}
+
+html body .page{
+  .brand,
+  .rd-navbar-brand {
+    &.text-secondary-2{
+      &:hover{
+        color: $secondary-2;
+      }
+    }
+    &.text-primary{
+      &:hover{
+        color: $primary;
+      }
+    }
+    &.text-secondary{
+      &:hover{
+        color: $secondary;
+      }
+    }
+  }
+}
+
+@import "rd-navbar_components/_rd-navbar-static.scss";
+@import "rd-navbar_components/_rd-navbar-fullwidth.scss";
+@import "rd-navbar_components/_rd-navbar-fixed.scss";
+

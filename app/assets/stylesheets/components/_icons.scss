@@ -1,0 +1,107 @@
+/*
+* @subsection   Icons
+*/
+
+$icon-xs-size: 57px;
+$icon-xs-fz: 20px;
+
+$icon-sm-size: 107px;
+$icon-sm-fz: 70px;
+//
+//$icon-sm-size: 24px;
+//$icon-sm-fz: 24px;
+
+$icon-md-size: 100px;
+$icon-md-fz: 100px;
+
+$icon-lg-size: 100px;
+$icon-lg-fz: 46px;
+
+$icon-xl-size: 120px;
+$icon-xl-fz: 96px;
+
+// Icon General Styles
+.icon {
+  display: inline-block;
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 50%;
+  transition: .3s all ease;
+}
+
+
+// Icon Sizing Styles
+.icon-xs{
+  width: $icon-xs-size;
+  height: $icon-xs-size;
+  line-height: $icon-xs-size - 2;
+  font-size: $icon-xs-fz;
+  border-width: 1px;
+}
+
+.icon-sm {
+  width: $icon-sm-size;
+  height: $icon-sm-size;
+  line-height: $icon-sm-size - 2;
+  font-size: $icon-sm-fz;
+  border-width: 1px;
+}
+
+.icon-md {
+  line-height: 1;
+  font-size: $icon-md-fz;
+}
+
+.icon-lg {
+  width: $icon-lg-size;
+  height: $icon-lg-size;
+  line-height: $icon-lg-size;
+  font-size: $icon-lg-fz;
+  border-width: 1px;
+}
+
+.icon-xl{
+  width: $icon-xl-size;
+  height: $icon-xl-size;
+  line-height: $icon-xl-size;
+  font-size: $icon-xl-fz;
+  border-width: 1px;
+}
+
+
+// Icon Appearance Styles
+.icon-default {
+  color: $contrast;
+  background-color: transparent;
+  border-width: 2px;
+  border-color: lighten(saturate(adjust_hue(#888, 255.3846153846154), 17.333333333333343%), 44.11764705882353%);
+
+  &:hover {
+    border-color: #ccc;
+  }
+}
+
+.icon-primary {
+  color: $primary;
+  background-color: $grayscale-lightest;
+  border-color: $primary;
+
+  &:hover {
+    color: $contrast;
+    background: $primary;
+    border-color: $primary;
+  }
+}
+
+.icon-secondary {
+  color: $secondary;
+  background-color: transparent;
+  border-color: $secondary;
+
+  &:hover{
+    color: $contrast;
+    background-color:  $secondary;
+    border-color: $secondary;
+  }
+}

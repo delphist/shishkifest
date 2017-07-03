@@ -1,0 +1,76 @@
+//========================================================
+//                     Variables
+//=========================================================
+
+// Layouts
+$layout-boxed-width: 1920px;
+$layout-boxed-bg: #444;
+
+
+// Resolutions
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+
+// Fonts
+$default-font-family: 'Lato', sans-serif;
+$default-font-family-headings: 'Montserrat', sans-serif;
+$default-font-weight: 300;
+$default-font-size: 20px;
+$default-line-height: 29px;
+$h1-font-size: 70;
+$h2-font-size: 40;
+$h3-font-size: 36;
+$h4-font-size: 26;
+$h5-font-size: 24;
+$h6-font-size: 20;
+
+
+// Anchor Colors
+$default: #000;
+$contrast: #fff;
+$white: #fff;
+$primary: #22d97c;
+$secondary: #16b3fd;
+$secondary-2: #5a44fe;
+
+// Relative Colors
+
+//#262431
+$grayscale-darkest: lighten(saturate(adjust_hue($default, 249.23076923076925), 15.294117647058824%), 16.666666666666668%);
+
+//#2f2d3b
+$grayscale-darker: lighten(saturate(adjust_hue($default, 248.57142857142858), 13.461538461538462%), 20.392156862745097%);
+
+//##303538
+$grayscale-darken: lighten(saturate(adjust_hue($default, 202.49999999999997), 7.6923076923076925%), 20.392156862745097%);
+
+//#3b3f42
+$grayscale-default: lighten(saturate(adjust_hue($default, 205.71428571428572), 5.600000000000002%), 24.50980392156863%);
+$grayscale-lighten: lighten($default, 87.84313725490196%);
+
+//#f9f7f5
+$grayscale-lightest: lighten(saturate(adjust_hue($default, 30), 24.999999999999957%), 96.86274509803921%);
+
+
+//#8e8ca0
+$content-color: lighten(saturate(adjust_hue($default, 245.99999999999997), 9.523809523809518%), 58.82352941176471%);
+
+//#b1afc0
+$content-color-1: darken(saturate(adjust_hue($contrast, 247.05882352941174), 11.888111888111885%), 28.039215686274517%);
+
+$content-bg: $contrast;
+
+// Round Corvers
+$border-radius-small: 0;
+$border-radius-base: 0;
+$border-radius-large: 0;
+
+
+// Shadows
+$box-shadow-ambient: 0 0 2px 0 rgba(0, 0, 0, .35);
+$box-shadow-key-small: 0px 1px 5px 0px rgba(0, 0, 0, 0.35);
+$box-shadow-key-light: 2px 3px 8px 0px rgba(0, 0, 0, 0.35);
+$box-shadow-key-light-large: 9px 15px 34px 0px rgba(0, 0, 0, 0.2);

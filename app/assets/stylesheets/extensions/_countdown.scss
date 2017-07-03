@@ -1,0 +1,129 @@
+/*
+* @subsection   Countdown
+*/
+
+.countdown {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  @include transform(translateY(-10px));
+  margin-bottom: -10px;
+  margin-left: -10px;
+
+
+  &-section {
+    display: inline-block;
+    text-align: center;
+    padding-top: 25px;
+    width: rem($default-font-size, 120);
+    height: rem($default-font-size, 120);
+    border-radius: 50%;
+    border: 1px solid $contrast;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  &-section + &-section {
+    margin-left: 8px;
+  }
+
+  &-row {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-amount {
+    display: block;
+    text-transform: uppercase;
+    font: 400 #{1.2rem}/#{1.3} $default-font-family-headings;
+  }
+
+  &-period {
+    display: block;
+    font: 400 #{0.7rem}/1 $default-font-family-headings;
+  }
+
+  @media (min-width: $screen-xs-min) {
+    &-section {
+      padding-top: 15px;
+      border-width: 2px;
+    }
+
+    &-amount {
+      display: block;
+      text-transform: uppercase;
+      font-size: 1.85rem;
+    }
+
+    &-period {
+      font-size: #{rem($default-font-size, 18px)};
+    }
+
+    &-section + &-section {
+      margin-left: 12px;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    &-section {
+      padding-top: rem($default-font-size, 30);
+      width: rem($default-font-size, 155px );
+      height: rem($default-font-size, 155px );
+    }
+
+    &-section + &-section {
+      margin-left: 30px;
+    }
+
+    &-amount {
+      font-size: rem($default-font-size, 40px);
+    }
+
+    &-period {
+      font-size: rem($default-font-size, 20px);
+      margin-top: 3px;
+    }
+  }
+
+  @media (min-width: $screen-lg-min) {
+    &-lg {
+      .countdown-section {
+        padding-top: 60px;
+        width: 248px;
+        height: 248px;
+      }
+
+      .countdown-section + .countdown-section {
+        margin-left: 20px;
+      }
+
+      .countdown-amount {
+        font-size: rem($default-font-size, 70px);
+      }
+
+      .countdown-period {
+        font-size: #{rem($default-font-size, 30px)};
+      }
+    }
+  }
+
+
+
+  &--mod-1{
+
+    .countdown-section {
+      border: 2px solid $secondary-2;
+
+      @media (min-width: $screen-sm-min) {
+        padding-top: rem($default-font-size, 30);
+        width: rem($default-font-size, 155px);
+        height: rem($default-font-size, 155px);
+      }
+    }
+
+  }
+}

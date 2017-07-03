@@ -1,0 +1,231 @@
+/*
+* @subsection   RD Navbar Fixed
+*
+* @description  Describes style declarations for fixed navbar layout
+*/
+
+.rd-navbar-fixed {
+
+  .rd-navbar-brand {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 64px;
+    right: 64px;
+    height: 36px;
+    text-align: center;
+    z-index: 17;
+    @extend %rd-navbar-transition;
+    color: lighten($secondary-2, 2%);
+
+    @media (min-width: $screen-sm-min) {
+      top: 0;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .rd-navbar-collapse-wrap {
+    display: block;
+  }
+
+  .rd-navbar-collapse {
+    display: none;
+    position: fixed;
+    top: 4px;
+    right: 4px;
+    z-index: 19;
+    color: $grayscale-default;
+    background: $contrast;
+    padding: 48px 20px 15px;
+    box-shadow: $rd-navbar-shadow-medium;
+
+    &.active {
+      display: block;
+    }
+
+    .icon-xs {
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
+      font-size: 16px;
+    }
+  }
+
+  .rd-navbar-collapse-toggle {
+    display: block;
+    position: fixed;
+    right: 0;
+    width: 56px;
+    top: 0;
+    height: 56px;
+    font-family: 'Material Icons';
+    @include toggle-icons-via-rotation(56px, 24px, $secondary-2, '\e5d4', '\e5cd');
+    z-index: 20;
+  }
+
+  .rd-navbar-panel-canvas {
+    display: block;
+    position: fixed;
+    height: 56px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: $rd-navbar-white-color;
+    box-shadow: $rd-navbar-shadow-medium;
+    z-index: 16;
+  }
+
+  .rd-navbar-toggle {
+    @include make-toggle(
+            button-lines-cross-2,
+            48px,
+            24px,
+            $secondary-2
+    );
+
+    position: fixed;
+    top: 4px;
+    left: 4px;
+    z-index: 17;
+  }
+
+  .rd-navbar-nav-wrap {
+    @extend %rd-navbar-transition;
+    display: block;
+    position: fixed;
+    text-align: left;
+    top: -56px;
+    left: 0;
+    width: 260px;
+    padding: 112px 0 56px;
+    bottom: -56px;
+    color: $grayscale-default;
+    background: $contrast;
+    box-shadow: $box-shadow-key-light;
+    z-index: 15;
+    @include transform(translateX(-105%));
+
+    &.active {
+      @include transform(translateX(0));
+    }
+  }
+
+  .rd-navbar-nav {
+    display: block;
+    height: 100%;
+    overflow: auto;
+    font-size: 16px;
+    font-family: $default-font-family-headings;
+    line-height: 30px;
+    text-transform: uppercase;
+    text-align: left;
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      height: 8px;
+    }
+
+    li {
+      > a {
+        display: block;
+        padding: 11px 36px 11px 16px;
+        color: $grayscale-default;
+        font-size: 14px;
+        font-weight: 400;
+
+        span {
+          &:first-child {
+            display: inline-block;
+            font-size: 24px;
+          }
+        }
+
+        span {
+          vertical-align: middle;
+        }
+
+        .tooltip {
+          padding-left: 10px;
+        }
+      }
+
+      &.opened > a, a:hover {
+        color: $contrast;
+        background: $secondary-2;
+      }
+
+      &.active {
+        .rd-navbar-submenu-toggle {
+          color: $white;
+        }
+
+        > a {
+          color: $white;
+          background: $secondary-2;
+        }
+      }
+    }
+  }
+
+  &.bg-default {
+    .rd-navbar-panel-canvas, .rd-navbar-nav-wrap, .rd-navbar-collapse {
+      color: $contrast;
+      background: $grayscale-darkest;
+    }
+
+    .rd-navbar-collapse-toggle span {
+      color: $contrast;
+    }
+
+    .rd-navbar-nav-wrap {
+      li {
+        > a {
+          color: $contrast;
+        }
+      }
+
+      &.opened > a, a:hover {
+        color: $contrast;
+        background: $secondary-2;
+      }
+    }
+
+    .rd-navbar-toggle {
+      span, span:before, span:after {
+        background: $contrast;
+      }
+    }
+  }
+}
+
+.rd-navbar-fixed.rd-navbar--primary-color {
+  .rd-navbar-toggle {
+    span {
+      background-color: $primary;
+      &:before, &:after {
+        background-color: $primary;
+        color: $primary;
+      }
+    }
+    &.active{
+      span{
+        background-color: transparent;
+      }
+    }
+  }
+
+  .rd-navbar-nav {
+    a:hover,
+    li.active a {
+      background-color: $primary;
+      color: $contrast;
+    }
+  }
+}

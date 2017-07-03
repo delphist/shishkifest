@@ -1,0 +1,148 @@
+/*
+* @subsection   Buttons
+*/
+
+$btn-xs-height: 40px;
+$btn-xs-size: 16px;
+
+$btn-sm-height: 50px;
+$btn-sm-size: 16px;
+
+$btn-md-height: 62px;
+$btn-md-size: 18px;
+
+$btn-lg-height: 55px;
+$btn-lg-size: 22px;
+
+$btn-xl-height: 60px;
+$btn-xl-size: 24px;
+
+$btn-group-offset: 20px;
+
+// Button General Styles
+.btn {
+  display: inline-block;
+  text-align: center;
+  line-height: 1.7;
+  white-space: nowrap;
+  max-width: 100%;
+  border-style: solid;
+  font-weight: 400;
+  font-family: $default-font-family-headings;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s all ease;
+  letter-spacing: 1.1px;
+  margin: 10px;
+}
+
+// Button Layout Styles
+.btn-xs,
+.btn-sm,
+.btn-md,
+.btn-lg,
+.btn-xl {
+  border-width: 2px;
+  min-width: 137px;
+}
+
+.btn-xs {
+  padding: em($btn-xs-size, ($btn-xs-height - ($btn-xs-size*1.7) - 4)/2) em($btn-xs-size, ($btn-xs-height - ($btn-xs-size*1.7) + 30)/2);
+  font-size: rem($default-font-size, $btn-xs-size);
+}
+
+.btn-sm {
+  padding: em($btn-sm-size, ($btn-sm-height - ($btn-sm-size*1.7) - 4)/2) em($btn-sm-size, ($btn-sm-height - ($btn-sm-size*1.7) + 30)/2);
+  font-size: rem($default-font-size, $btn-sm-size);
+}
+
+.btn-md {
+  padding: em($btn-md-size, ($btn-md-height - ($btn-md-size*1.7) - 4)/2) em($btn-md-size, ($btn-md-height - ($btn-md-size*1.7) + 40)/2);
+  font-size: rem($default-font-size, $btn-md-size);
+}
+
+.btn-lg {
+  padding: em($btn-lg-size, ($btn-lg-height - ($btn-lg-size*1.7) - 4)/2) em($btn-lg-size, ($btn-lg-height - ($btn-lg-size*1.7) + 30)/2);
+  font-size: rem($default-font-size, $btn-lg-size);
+}
+
+.btn-xl {
+  padding: em($btn-xl-size, ($btn-xl-height - ($btn-xl-size*1.7) - 4)/2) em($btn-xl-size, ($btn-xl-height - ($btn-xl-size*1.7) + 30)/2);
+  font-size: rem($default-font-size, $btn-xl-size);
+}
+
+.btn-block{
+  display: block;
+  width: 100%;
+}
+
+// Button Appearance Styles
+.btn-default {
+  color: $contrast;
+  background: transparent;
+  border-color: $contrast;
+
+  &:hover, &:active {
+    color: lighten(saturate(adjust_hue($default, 248.57142857142858), 13.461538461538462%), 20.392156862745097%);
+    background: $contrast;
+    border-color: $contrast;
+  }
+
+  &--mod-1{
+    &:hover, &:active {
+      color: $white;
+      background: $secondary;
+      border-color: $secondary;
+    }
+  }
+}
+
+.btn-primary {
+  color: $white;
+  background: $primary;
+  border-color: $primary;
+
+  &:hover, &:active {
+    background: $secondary;
+    border-color: $secondary;
+  }
+}
+
+.btn-secondary {
+  color: $contrast;
+  background: $secondary;
+  border-color: $secondary;
+
+  &:hover, &:active {
+    color: $contrast;
+    background: darken($primary, 12.352941176470594%);
+    border-color: darken($primary, 12.352941176470594%);
+  }
+}
+
+.btn-secondary-2 {
+  color: $contrast;
+  background: $secondary-2;
+  border-color: $secondary-2;
+
+  &:hover, &:active {
+    color: $contrast;
+    background: darken($secondary, 12.352941176470594%);
+    border-color: darken($secondary, 12.352941176470594%);
+  }
+}
+
+// Button Group Styles
+.btn-group {
+  @include transform(translateY(-$btn-group-offset));
+  margin-bottom: -$btn-group-offset;
+  margin-left: -$btn-group-offset;
+
+  .btn {
+    margin-top: $btn-group-offset;
+    margin-left: $btn-group-offset;
+  }
+}

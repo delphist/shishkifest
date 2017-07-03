@@ -1,0 +1,75 @@
+/*
+* @subsection   Easy Responsive Tabs
+*
+* @description  Describes style declarations for Easy Responsive Tabs extension
+*
+* @author       Samson Onna
+* @link         samson3d@gmail.com
+* @version      1.0.0
+*/
+.resp-tab-list,
+.resp-accordion,
+.resp-tab-content,
+.resp-tab-content-active{
+  display: none;
+}
+
+.resp-tab-list > li,
+.resp-accordion{
+  cursor: pointer;
+}
+
+.responsive-tabs[data-type="accordion"]{
+  text-align: left;
+
+  .resp-arrow{
+    position: absolute;
+    right: -12px;
+    width: 36px;
+    height: 32px;
+    top: 23px;
+    color: $primary;
+    text-align: center;
+    font: 400 36px/32px 'Material Icons';
+    transition: .3s all ease;
+
+    &:before{
+      content: '\e5cf';
+    }
+  }
+
+  .resp-accordion{
+    position: relative;
+    display: block;
+    padding: 23px 30px 22px 0;
+    border-top: 1px solid $primary;
+    font-weight: 400;
+    font-size: rem($default-font-size, $h5-font-size);
+    line-height: 1.6;
+    letter-spacing: .12em;
+    font-family: $default-font-family-headings;
+    text-transform: uppercase;
+
+    &.resp-tab-active{
+      color: $secondary;
+
+      .resp-arrow{
+        color: $secondary;
+        @include transform(rotate(180deg))
+      }
+    }
+  }
+
+
+
+  .resp-tab-content{
+    padding-bottom: 23px;
+    margin-top: -10px;
+  }
+
+  .resp-tab-content-active{
+    display: block;
+  }
+
+  border-bottom: 1px solid $primary;
+}

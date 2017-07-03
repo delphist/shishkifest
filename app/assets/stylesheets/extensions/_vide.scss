@@ -1,0 +1,16 @@
+/*
+* @subsection   Vide
+* @description  Describes style declarations for Vide extension 
+*/
+
+.vide {
+  opacity: .85;
+
+  &__body {
+    position: relative;
+  }
+
+  &-wrap{
+    background: $default;
+  }
+}

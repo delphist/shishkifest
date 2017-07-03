@@ -3,8 +3,8 @@ lock '3.8.2'
 
 set :application, 'shishkifest'
 set :repo_url, 'git@github.com:delphist/shishkifest.git'
+set :user, 'deploy'
 
-set :rvm_type, :system
 set :rvm_ruby_version, "#{File.read('.ruby-version').strip}@#{fetch :stage}"
 
 append :linked_files, 'config/database.yml'

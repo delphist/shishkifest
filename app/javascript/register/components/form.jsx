@@ -8,11 +8,6 @@ import * as validations from './validations'
 import { fetchConfirmationIfNeeded } from '../actions'
 
 class Form extends React.Component {
-  onSend() {
-    const { dispatch } = this.props
-    dispatch(fetchConfirmationIfNeeded('89832408722'))
-  }
-
   submit(values) {
     const { dispatch } = this.props
     dispatch(fetchConfirmationIfNeeded(values.phone))
@@ -113,7 +108,6 @@ class Form extends React.Component {
             </label>
             <FieldArray name="photos" component={::this.renderFiles} validate={[validations.requiredPhotos]} />
             <div className="mfControls text-center">
-              <button className="btn btn-md btn-secondary-2" onClick={::this.onSend}>Отправить так</button>
               <button className="btn btn-md btn-secondary" onClick={::this.onUploadClick}>Прикрепить фотографии</button>
               <button className="btn btn-md btn-secondary-2" type="submit" disabled={submitting}>Подать заявку</button>
             </div>

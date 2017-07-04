@@ -54,6 +54,16 @@ $placeholder-opacity: 1;
     }
   }
 
+  .upload-photos {
+    @include clearfix;
+    .photo {
+      margin: 10px;
+      float: left;
+      img {
+        width: 200px;
+      }
+    }
+  }
 }
 
 .rd-mailform label {
@@ -371,14 +381,3 @@ $placeholder-opacity: 1;
 @import "mailform_modules/_mf-icon.scss";
 @import "mailform_modules/_mf-select.scss";
 @import "mailform_modules/_mf-datepicker.scss";
-
-
-
-
-
-
-
-
-
-
-

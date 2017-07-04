@@ -17,7 +17,6 @@ class Confirmation extends React.Component {
   submit(values) {
     const { dispatch, register, confirmation: { token } } = this.props
     const { code } = values
-    console.log(this.props)
     dispatch(fetchRegistration(token, code, register))
   }
 

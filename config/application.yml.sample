@@ -1,0 +1,3 @@
+smsc_login: 'login'
+smsc_password: 'password'
+smsc_api_url: 'https://smsc.ru/sys/send.php'

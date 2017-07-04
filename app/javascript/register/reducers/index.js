@@ -9,6 +9,7 @@ export const register = (state = {
   currentStep: 'form',
   currentTime: Date.now(),
   memberId: null,
+  error: [],
   confirmation: {
     token: null,
     phone: null,

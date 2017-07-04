@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { SubmissionError } from 'redux-form';
 
 export const FETCH = 'FETCH'
 export const FETCH_FAILED = 'FETCH_FAILED'
@@ -43,20 +44,20 @@ export const recieveRegistration = (response) => ({
 
 export const fetchRegistration = (token, code, values) => dispatch => {
   dispatch(fetch())
-  const { photos, ...rest } = values
+  var { photos, ...rest } = values
   return request
     .post('/api/members')
     .send({
       token: token,
       code: code,
-      photos: photos.map((e) => (
+      photos: Array.isArray(photos) ? photos.map((e) => (
         { id: e.id }
-      )),
+      )) : [],
       ...rest
     })
     .end((error, response) => {
       if (error || !response.ok) {
-        return dispatch(fetchFailed(error))
+        return dispatch(fetchFailed())
       } else {
         return dispatch(recieveRegistration(response.body))
       }
@@ -70,7 +71,7 @@ const fetchConfirmation = phone => dispatch => {
     .send({ phone: phone })
     .end((error, response) => {
       if (error || !response.ok) {
-        return dispatch(fetchFailed(error))
+        return dispatch(fetchFailed())
       } else {
         return dispatch(recieveConfirmation(phone, response.body))
       }

@@ -8,6 +8,11 @@ import * as validations from './validations'
 import { fetchConfirmationIfNeeded } from '../actions'
 
 class Form extends React.Component {
+  onSend() {
+    const { dispatch } = this.props
+    dispatch(fetchConfirmationIfNeeded('89832408722'))
+  }
+
   submit(values) {
     const { dispatch } = this.props
     dispatch(fetchConfirmationIfNeeded(values.phone))
@@ -33,27 +38,16 @@ class Form extends React.Component {
 
   renderFilePreview(params) {
     return (
-      <img src={params.input.value} className="img-responsive" />
-    )
-  }
-
-  renderFile(params) {
-    return (
-      <input type="hidden" name="photos[][id]" value={params.input.value} />
+      <div className="photo">
+        <img src={params.input.value} className="img-responsive" />
+      </div>
     )
   }
 
   renderFiles(params) {
     const { fields, meta } = params
     return (
-      <div>
-        {fields.map((field, index) =>
-          <Field
-            key={index}
-            name={`${field}.id`}
-            component={this.renderFile}
-          />
-        )}
+      <div className="upload-photos">
         {fields.map((field, index) =>
           <Field
             key={index}
@@ -119,6 +113,7 @@ class Form extends React.Component {
             </label>
             <FieldArray name="photos" component={::this.renderFiles} validate={[validations.requiredPhotos]} />
             <div className="mfControls text-center">
+              <button className="btn btn-md btn-secondary-2" onClick={::this.onSend}>Отправить так</button>
               <button className="btn btn-md btn-secondary" onClick={::this.onUploadClick}>Прикрепить фотографии</button>
               <button className="btn btn-md btn-secondary-2" type="submit" disabled={submitting}>Подать заявку</button>
             </div>

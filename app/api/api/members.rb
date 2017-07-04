@@ -21,4 +21,8 @@ class Api::Members < Grape::API
       end
     end
   end
+
+  rescue_from Grape::Exceptions::ValidationErrors do |e|
+    error!({ error: e.map { |key, error| { key.first => error } }.reduce(:merge) }, 400)
+  end
 end

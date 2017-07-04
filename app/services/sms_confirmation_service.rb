@@ -25,6 +25,10 @@ class SmsConfirmationService
   private
 
     def send_sms
+      SmsSenderService.new(
+        phone: phone,
+        message: I18n.t('user_sms_confirmation', code: code)
+      ).perform
     end
 
     def create_model

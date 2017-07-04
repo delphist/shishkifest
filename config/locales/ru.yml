@@ -1,3 +1,4 @@
 ru:
+  user_sms_confirmation: "Проверочный код: %{code}. Шишки 2017"
   errors:
     correct_code?: "Неверный код подтверждения"

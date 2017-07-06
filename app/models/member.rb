@@ -18,7 +18,18 @@ class Member < ApplicationRecord
   has_many :photos
   phony_normalize :phone, default_country_code: 'RU'
 
+  validates :name, :phone, :license, :about, presence: true
+
   aasm column: 'state' do
     state :created, initial: true
+    state :approved, :rejected
+
+    event :approve do
+      transitions from: [:created, :rejected], to: :approved
+    end
+
+    event :rejected do
+      transitions from: :created, to: :rejected
+    end
   end
 end

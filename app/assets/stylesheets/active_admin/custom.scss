@@ -1,0 +1,40 @@
+#index_table_members {
+  .col-photo {
+    width: 100px;
+    img {
+      height: 100px;
+    }
+  }
+  .col-name {
+    width: 150px;
+  }
+  .col-state {
+    width: 150px;
+  }
+  .col-created_at {
+    width: 200px;
+  }
+}
+
+.panel_contents {
+  > span, .text {
+    padding: 0 16px 16px 16px;
+    p {
+      margin: 0;
+    }
+  }
+
+  .photos-list {
+    @include clearfix;
+    padding: 0 10px 10px 10px;
+
+    .photo {
+      padding: 6px;
+      float: left;
+    }
+  }
+}
+
+.active_admin_comment {
+  padding: 20px;
+}

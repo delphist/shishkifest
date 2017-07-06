@@ -5,6 +5,7 @@ class RegisterForm < ApplicationForm
   property :name
   property :license
   property :about
+  property :phone
 
   collection :photos,
     populator: ->(fragment:, **) {

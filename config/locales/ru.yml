@@ -2,3 +2,48 @@ ru:
   user_sms_confirmation: "Проверочный код: %{code}. Шишки 2017"
   errors:
     correct_code?: "Неверный код подтверждения"
+  active_admin:
+    title: Шишки
+    new_model: "Создать"
+    edit_model: "Изменить"
+    delete_model: "Удалить"
+    blank_slate:
+      content: "Ничего нет."
+    batch_actions:
+      button_label: "Действия"
+    pagination:
+      empty: "ничего не найдено"
+      one: "<b>1</b> %{model}"
+      one_page: "<b>%{n}</b> %{model}"
+      multiple: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
+      multiple_without_total: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+    sidebars:
+      filters: "Поиск"
+      search_status: "Как искали?"
+  attributes:
+    created_at: Создано
+    updated_at: Обновлено
+  activerecord:
+    attributes:
+      member:
+        photo: Фотография
+        photos: Фотографии
+        name: Имя
+        license: Гос. номер
+        phone: Телефон
+        about: Описание
+        state: Статус
+        state/created: Новая заявка
+        state/approved: Одобрено
+        state/rejected: Отказано
+    models:
+      admin_user:
+        one: Администратор
+        few: Администратора
+        many: Администраторов
+        other: Администраторы
+      member:
+        one: Участник
+        few: Участника
+        many: Участников
+        other: Участники

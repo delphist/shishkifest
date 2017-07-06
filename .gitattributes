@@ -3,4 +3,4 @@ app/assets/stylesheets/extensions/* linguist-vendored
 app/assets/stylesheets/fonts/* linguist-vendored
 app/assets/stylesheets/includes/* linguist-vendored
 app/assets/stylesheets/modules/* linguist-vendored
-app/assets/stylesheets/style.css linguist-vendored
+app/assets/stylesheets/style.scss linguist-vendored

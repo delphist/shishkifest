@@ -29,6 +29,7 @@ gem 'aasm'
 gem 'httparty'
 gem 'phony_rails'
 gem 'paranoia', '~> 2.2'
+gem 'pundit'
 
 # Forms
 gem 'reform-rails'

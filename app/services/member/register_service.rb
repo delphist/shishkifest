@@ -1,4 +1,4 @@
-class RegisterFormService
+class Member::RegisterService
   attr_reader :form, :model, :hash
 
   def initialize form

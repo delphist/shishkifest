@@ -4,6 +4,18 @@ ActiveAdmin.register Member do
   config.filters = false
   config.batch_actions = false
 
+  action_item :approve,
+    if: -> { Pundit.policy(current_admin_user, resource).approve? },
+    only: :show do
+      link_to I18n.t('active_admin.approve'), approve_admin_member_path(resource)
+    end
+
+  action_item :reject,
+    if: -> { Pundit.policy(current_admin_user, resource).reject? },
+    only: :show do
+      link_to I18n.t('active_admin.reject'), reject_admin_member_path(resource)
+    end
+
   index do
     column :photo do |member|
       if member.photo.present?
@@ -55,5 +67,25 @@ ActiveAdmin.register Member do
     end
 
     active_admin_comments
+  end
+
+  member_action :approve, method: [:get, :patch] do
+    @form = Member::ApproveForm.new resource
+
+    if request.put?
+      if @form.valid? params[:member_approve].permit(:comment)
+        redirect_to resource_path, notice: 'Заявка одобрена'
+      end
+    end
+  end
+
+  member_action :reject, method: [:get, :patch], format: :html do
+    @form = Member::ApproveForm.new resource
+
+    if request.put?
+      if @form.valid? params[:member_reject].permit(:comment)
+        redirect_to resource_path, notice: 'Заявка отклонена'
+      end
+    end
   end
 end

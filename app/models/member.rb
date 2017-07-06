@@ -28,8 +28,8 @@ class Member < ApplicationRecord
       transitions from: [:created, :rejected], to: :approved
     end
 
-    event :rejected do
-      transitions from: :created, to: :rejected
+    event :reject do
+      transitions from: [:created, :approved], to: :rejected
     end
   end
 end

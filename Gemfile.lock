@@ -282,6 +282,8 @@ GEM
       activerecord (>= 3.0)
     public_suffix (2.0.5)
     puma (3.9.1)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -436,6 +438,7 @@ DEPENDENCIES
   pg
   phony_rails
   puma (~> 3.7)
+  pundit
   rails (~> 5.1.1)
   rails-i18n (~> 5.0.0)
   reform-rails

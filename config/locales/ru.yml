@@ -7,6 +7,8 @@ ru:
     new_model: "Создать"
     edit_model: "Изменить"
     delete_model: "Удалить"
+    approve: Одобрить заявку
+    reject: Отклонить заявку
     blank_slate:
       content: "Ничего нет."
     batch_actions:
@@ -37,6 +39,8 @@ ru:
         state/approved: Одобрено
         state/rejected: Отказано
     models:
+      member_approve_form:
+        comment: 'asd'
       admin_user:
         one: Администратор
         few: Администратора

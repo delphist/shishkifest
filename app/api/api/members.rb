@@ -13,9 +13,9 @@ class Api::Members < Grape::API
       end
     end
     post do
-      @form = RegisterForm.new Member.new
+      @form = Member::RegisterForm.new Member.new
       if @form.validate params
-        present RegisterFormService.new(@form).perform
+        present Member::RegisterService.new(@form).perform
       else
         error!({ error: @form.errors.messages }, 400)
       end

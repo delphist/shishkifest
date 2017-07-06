@@ -1,0 +1,6 @@
+app/assets/components/* linguist-vendored
+app/assets/extensions/* linguist-vendored
+app/assets/fonts/* linguist-vendored
+app/assets/includes/* linguist-vendored
+app/assets/modules/* linguist-vendored
+app/assets/style.css linguist-vendored

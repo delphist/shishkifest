@@ -1,4 +1,4 @@
-class RegisterForm < ApplicationForm
+class Member::RegisterForm < ApplicationForm
   property :token, virtual: true
   property :code, virtual: true
 

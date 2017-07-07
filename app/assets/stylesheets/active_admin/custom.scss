@@ -38,3 +38,13 @@
 .active_admin_comment {
   padding: 20px;
 }
+
+.status_tag {
+  &.approved {
+    background-color: green;
+  }
+
+  &.error {
+    background-color: red;
+  }
+}

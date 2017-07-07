@@ -1,5 +1,5 @@
 div.panel
   = semantic_form_for [:admin, @form], url: approve_admin_member_path, builder: ActiveAdmin::FormBuilder do |f|
     = f.inputs do
-      = f.input :comment
+      = f.input :message
     = f.actions

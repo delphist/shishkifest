@@ -1,0 +1,8 @@
+- if resource.sms_histories.any?
+  div.photos-list
+    - for sms_history in resource.sms_histories.latest
+      div.active_admin_comment
+        .active_admin_comment_meta
+          h4.active_admin_comment_author= sms_history.admin_user.email
+          span= l sms_history.created_at, format: :long
+        = sms_history.message

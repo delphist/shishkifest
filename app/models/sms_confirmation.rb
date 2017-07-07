@@ -11,6 +11,8 @@
 #
 
 class SmsConfirmation < ApplicationRecord
+  phony_normalize :phone, country_code: 'RU'
+
   validates :token, :code, :phone, presence: true
   validates :token, uniqueness: true
 end

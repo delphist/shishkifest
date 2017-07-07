@@ -9,6 +9,7 @@ class SmsConfirmationService
   end
 
   def perform
+    normalize_phone
     create_model
     send_sms
     model
@@ -24,10 +25,14 @@ class SmsConfirmationService
 
   private
 
+    def normalize_phone
+      @phone[0] = '' if @phone[0] == '8'
+    end
+
     def send_sms
       SmsSenderService.new(
-        phone: phone,
-        message: I18n.t('user_sms_confirmation', code: code)
+        phone: model.phone,
+        message: I18n.t('sms.phone_confirmation', code: code)
       ).perform
     end
 

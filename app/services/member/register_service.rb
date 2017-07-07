@@ -12,6 +12,7 @@ class Member::RegisterService
       @form.save do |hash|
         @model = form.model
         @hash = hash
+        normalize_phone
         assign_hash_to_model
         model.save
       end
@@ -19,6 +20,10 @@ class Member::RegisterService
   end
 
   private
+
+    def normalize_phone
+      @hash[:phone][0] = '' if @hash[:phone][0] == '8'
+    end
 
     def assign_hash_to_model
       @model.attributes = hash.slice(*params)

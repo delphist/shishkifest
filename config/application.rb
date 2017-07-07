@@ -10,6 +10,9 @@ module Shishkifest
 
     config.paths.add 'app/api', glob: '**/*.rb'
 
+    config.time_zone = 'Krasnoyarsk'
+    config.active_record.default_timezone = :utc
+
     additional_paths = %W[
       #{config.root}/app/services
     ]

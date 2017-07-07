@@ -60,9 +60,13 @@ ActiveAdmin.register Member do
       end
     end
 
+    panel I18n.t 'activerecord.attributes.member.sms_histories' do
+      render 'sms_history'
+    end
+
     panel I18n.t 'activerecord.attributes.member.photos' do
       render \
-        partial: 'active_admin/members/photos',
+        partial: 'photos',
         locals: { photos: member.photos }
     end
 
@@ -72,18 +76,20 @@ ActiveAdmin.register Member do
   member_action :approve, method: [:get, :patch] do
     @form = Member::ApproveForm.new resource
 
-    if request.put?
-      if @form.valid? params[:member_approve].permit(:comment)
+    if request.patch?
+      if @form.validate params[:member_approve].permit(:message)
+        Member::StatusService.new(@form, current_admin_user, :approve).perform
         redirect_to resource_path, notice: 'Заявка одобрена'
       end
     end
   end
 
-  member_action :reject, method: [:get, :patch], format: :html do
-    @form = Member::ApproveForm.new resource
+  member_action :reject, method: [:get, :patch] do
+    @form = Member::RejectForm.new resource
 
-    if request.put?
-      if @form.valid? params[:member_reject].permit(:comment)
+    if request.patch?
+      if @form.validate params[:member_reject].permit(:message)
+        Member::StatusService.new(@form, current_admin_user, :reject).perform
         redirect_to resource_path, notice: 'Заявка отклонена'
       end
     end

@@ -16,7 +16,8 @@ class Member < ApplicationRecord
   include AASM
 
   has_many :photos
-  phony_normalize :phone, default_country_code: 'RU'
+  has_many :sms_histories
+  phony_normalize :phone, country_code: 'RU'
 
   validates :name, :phone, :license, :about, presence: true
 

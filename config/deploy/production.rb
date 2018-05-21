@@ -7,7 +7,7 @@ server 'shishkifest.ru',
   }
 
 set :rails_env, 'production'
-set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :deploy_to, "/home/#{fetch(:user)}/applications/#{fetch(:application)}"
 
 set :nginx_server_name, 'shishkifest.ru'
 set :nginx_sites_available_path, "/etc/nginx/sites-available"
